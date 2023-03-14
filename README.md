@@ -7,3 +7,9 @@ Requirements:
 3. Show current week
 4. Possible to create and edit activities
 5. Could be shared
+
+
+Technologies:
+- server-side: NestJs with Prisma
+- client-side: React without store management libraries aka Redux
+- database: PostgreSQL
