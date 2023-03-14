@@ -1,0 +1,19 @@
+{
+  "name": "school-calendar",
+  "version": "1.0.0",
+  "description": "Simple school calendar",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yzhbankov/school-calendar.git"
+  },
+  "author": "yzhbankov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yzhbankov/school-calendar/issues"
+  },
+  "homepage": "https://github.com/yzhbankov/school-calendar#readme"
+}
