@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Event } from '../../models';
+import { Event } from './event.model';
 
 @Injectable()
 export class EventService {
