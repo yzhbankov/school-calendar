@@ -7,11 +7,11 @@ export class EventController {
 
     @Post()
     async saveEvent(): Promise<string> {
-        return this.appService.saveEvent()
+        return this.appService.save({ title: "New Event", description: "Description" })
     }
 
     @Get()
     async readEvent(): Promise<string> {
-        return "Hello from read event"
+        return this.appService.read()
     }
 }

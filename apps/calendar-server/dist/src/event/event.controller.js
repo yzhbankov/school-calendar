@@ -17,10 +17,10 @@ let EventController = class EventController {
         this.appService = appService;
     }
     async saveEvent() {
-        return this.appService.saveEvent();
+        return this.appService.save({ title: "New Event", description: "Description" });
     }
     async readEvent() {
-        return "Hello from read event";
+        return this.appService.read();
     }
 };
 __decorate([

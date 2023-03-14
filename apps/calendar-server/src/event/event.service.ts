@@ -1,8 +1,13 @@
 import { Injectable } from '@nestjs/common';
+import { Event } from '../../models';
 
 @Injectable()
 export class EventService {
-    saveEvent(): string {
-        return "Saved Event"
+    async save(event: any): Promise<any> {
+        return new Event().save(event)
+    }
+
+    async read(): Promise<any> {
+        return new Event().read()
     }
 }
