@@ -1,4 +1,4 @@
-import { UserService } from "./user.service";
+import { UserService } from './user.service';
 import { CreateUserDto } from './dto';
 export declare class UserController {
     private readonly appService;

@@ -8,13 +8,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EventService = void 0;
 const common_1 = require("@nestjs/common");
-const event_model_1 = require("./event.model");
+const client_1 = require("@prisma/client");
+const prisma = new client_1.PrismaClient();
 let EventService = class EventService {
     async save(event) {
-        return new event_model_1.Event().save(event);
+        return prisma.event.create({
+            data: {
+                title: event.title,
+                description: event.description,
+                createdDate: new Date(),
+                updatedDate: new Date(),
+                timeFrom: new Date(),
+                timeTo: new Date(),
+                dateFrom: new Date(),
+                dateTo: new Date(),
+                userId: 1
+            },
+        });
     }
     async read() {
-        return new event_model_1.Event().read();
+        return prisma.event.findMany();
     }
 };
 EventService = __decorate([

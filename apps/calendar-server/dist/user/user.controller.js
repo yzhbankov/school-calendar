@@ -14,8 +14,10 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
 const common_1 = require("@nestjs/common");
+const swagger_1 = require("@nestjs/swagger");
 const user_service_1 = require("./user.service");
 const dto_1 = require("./dto");
+const user_entity_1 = require("./entity/user.entity");
 let UserController = class UserController {
     constructor(appService) {
         this.appService = appService;
@@ -28,6 +30,9 @@ let UserController = class UserController {
     }
 };
 __decorate([
+    (0, swagger_1.ApiOperation)({ summary: 'Create user' }),
+    (0, swagger_1.ApiResponse)({ status: 403, description: 'Forbidden.' }),
+    (0, swagger_1.ApiResponse)({ status: 422, description: 'Validation error.' }),
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -35,12 +40,15 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "saveUser", null);
 __decorate([
+    (0, swagger_1.ApiResponse)({ status: 200, description: 'The found events', type: [user_entity_1.User] }),
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "readUser", null);
 UserController = __decorate([
+    (0, swagger_1.ApiBearerAuth)(),
+    (0, swagger_1.ApiTags)('user'),
     (0, common_1.Controller)('user'),
     __metadata("design:paramtypes", [user_service_1.UserService])
 ], UserController);

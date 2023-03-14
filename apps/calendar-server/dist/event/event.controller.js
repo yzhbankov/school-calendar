@@ -14,7 +14,9 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EventController = void 0;
 const common_1 = require("@nestjs/common");
+const swagger_1 = require("@nestjs/swagger");
 const event_service_1 = require("./event.service");
+const event_entity_1 = require("./entity/event.entity");
 const dto_1 = require("./dto");
 let EventController = class EventController {
     constructor(appService) {
@@ -29,6 +31,9 @@ let EventController = class EventController {
 };
 __decorate([
     (0, common_1.Post)(),
+    (0, swagger_1.ApiOperation)({ summary: 'Create event' }),
+    (0, swagger_1.ApiResponse)({ status: 403, description: 'Forbidden.' }),
+    (0, swagger_1.ApiResponse)({ status: 422, description: 'Validation error.' }),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [dto_1.CreateEventDto]),
@@ -36,11 +41,14 @@ __decorate([
 ], EventController.prototype, "saveEvent", null);
 __decorate([
     (0, common_1.Get)(),
+    (0, swagger_1.ApiResponse)({ status: 200, description: 'The found events', type: [event_entity_1.Event] }),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], EventController.prototype, "readEvent", null);
 EventController = __decorate([
+    (0, swagger_1.ApiBearerAuth)(),
+    (0, swagger_1.ApiTags)('event'),
     (0, common_1.Controller)('event'),
     __metadata("design:paramtypes", [event_service_1.EventService])
 ], EventController);
